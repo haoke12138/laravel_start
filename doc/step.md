@@ -1,6 +1,6 @@
 执行步骤
 
-1. 部署laravel 应用程序
+1.部署laravel 应用程序
 在部署之前需要确认php的`fileinfo`模块是否为启用状态
 ```bash
 $ composer install --optimize-autoloader --no-dev
@@ -9,7 +9,7 @@ $ composer install --optimize-autoloader --no-dev
 $ php artisan key:generate
 # 指定应用程序加密密钥
 ```  
-2. 安装用户验证脚手架
+2.安装用户验证脚手架
 用户验证
 执行命令：
 ```bash
@@ -27,9 +27,20 @@ $ npm run dev
 $ mysql -uroot -e 'CREATE DATABASE `laravel` DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci'
 ```
 
-4. 安装laravel-admin框架
+4.安装laravel-admin框架
 ```bash
 $ composer require encore/laravel-admin:1.*
 $ php artisan vendor:publish --provider="Encore\Admin\AdminServiceProvider"
 $ php artisan admin:install
+```
+
+5.添加软连接
+```bash
+php artisan storage:link
+```
+
+6.添加laravel-admin的helper插件
+```bash
+$ composer require "laravel-admin-ext/helpers:1.*"
+$ php artisan admin:import helpers
 ```
