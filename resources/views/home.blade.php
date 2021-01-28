@@ -15,6 +15,7 @@
                     @endif
 
                     You are logged in!
+                        <a class="btn btn-primary" href="{{ route('uploadAvatar') }}">添加头像</a>
                 </div>
             </div>
         </div>

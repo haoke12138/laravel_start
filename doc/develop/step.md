@@ -4,3 +4,10 @@
 ```bash
 $ php artisan make:migration add_avatar_to_user
 ```
+
+
+
+通过npm引入bootstrap
+```bash
+$ npm install bootstrap
+```
