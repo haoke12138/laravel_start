@@ -1,4 +1,7 @@
 @extends('layouts.app')
+<head>
+    <script src="http://laravel-study.cc/vendor/laravel-admin/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+</head>
 
 @section('content')
 <div class="container">
@@ -40,6 +43,24 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="verification-code" class="col-md-4 col-form-label text-md-right">{{ __('验证码') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="verification-code" type="text" class="form-control" name="verification_code" required>
+
+{{--                                @error('verification_code')--}}
+{{--                                <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                </span>--}}
+{{--                                @enderror--}}
+                            </div>
+                            <div class="col-md-6">
+                                <img class="captcha-img" src="{{ route('getCaptcha') }}" style="cursor: pointer;">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -71,3 +92,31 @@
     </div>
 </div>
 @endsection
+
+<script type="text/javascript">
+    window.onload = function(){
+        $('.captcha-img').click(function () {
+            {{--$.get("{{ route('getCaptcha') }}", function (e) {--}}
+            //     console.log(e)
+                $('.captcha-img').attr('src', "{{ route('getCaptcha') }}")
+            // });
+
+            $('.js-btn').click(function (res) {
+                console.log(345)
+
+                $.get('/resource/update/100', function (data,status) {
+                    console.log("数据: " + data + "\n状态: " + status);
+                }).fail(function(data){
+                    console.log(data.responseJSON.message);
+                });
+            });
+        })
+    }
+
+</script>
+
+
+
+
+
+

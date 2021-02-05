@@ -14,6 +14,9 @@
                         </div>
                     @endif
 
+{{--                        <div id="app">--}}
+                        <example></example>
+{{--                        </div>--}}
                     You are logged in!
                 </div>
             </div>
